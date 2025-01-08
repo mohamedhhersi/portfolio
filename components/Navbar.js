@@ -1,10 +1,11 @@
 "use client";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import Link from "next/link";
+import { useModal } from "@/context/ModalContext";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const { setIsModalOpen } = useModal();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,7 +19,7 @@ const Navbar = () => {
     { name: "Home", href: "#home" },
     { name: "Skills", href: "#skills" },
     { name: "Projects", href: "#projects" },
-    { name: "Contact", href: "#contact" },
+    { name: "Contact", action: () => setIsModalOpen(true) },
   ];
 
   return (
@@ -35,20 +36,22 @@ const Navbar = () => {
             whileHover={{ scale: 1.05 }}
             className="text-2xl font-bold text-gray-800"
           >
-            YourName
+            Mohamed Hersi
           </motion.div>
 
           <div className="hidden md:block">
             <div className="flex items-center space-x-8">
               {navItems.map((item) => (
-                <motion.a
+                <motion.button
                   key={item.name}
-                  href={item.href}
+                  onClick={
+                    item.action || (() => (window.location.href = item.href))
+                  }
                   whileHover={{ scale: 1.1 }}
                   className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
                 >
                   {item.name}
-                </motion.a>
+                </motion.button>
               ))}
             </div>
           </div>
