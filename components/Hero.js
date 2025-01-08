@@ -4,17 +4,8 @@ import Image from "next/image";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-rose-50 via-sky-50 to-indigo-50">
-        <div className="absolute inset-0 opacity-70">
-          <div className="absolute top-0 -left-4 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
-          <div className="absolute top-0 -right-4 w-72 h-72 bg-sky-300 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
-          <div className="absolute -bottom-8 left-20 w-72 h-72 bg-indigo-300 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
-        </div>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col md:flex-row items-center gap-12 relative z-10">
+    <section className="min-h-screen flex items-center justify-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col md:flex-row items-center gap-12">
         {/* Text Content */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
@@ -79,15 +70,26 @@ const Hero = () => {
                   →
                 </motion.span>
               </div>
-              <div className="absolute inset-0 bg-gradient-to-r from-sky-600 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </a>
 
-            <a
-              href="#contact"
-              className="relative px-6 py-3 rounded-lg overflow-hidden border border-sky-500/30 hover:border-sky-500/50 bg-sky-50/30 backdrop-blur-sm transition-all duration-300"
-            >
-              <span className="text-sky-700 font-medium">Contact Me</span>
-            </a>
+            <div className="flex gap-4">
+              <a
+                href="https://www.linkedin.com/in/mohamed-hersi-786a31268/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3 py-3 rounded-lg border border-sky-500/30 hover:border-sky-500/50 bg-sky-50/30 backdrop-blur-sm text-sky-700 transition-all duration-300"
+              >
+                <i className="fab fa-linkedin-in text-lg"></i>
+              </a>
+              <a
+                href="https://github.com/mohamedhhersi"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3 py-3 rounded-lg border border-sky-500/30 hover:border-sky-500/50 bg-sky-50/30 backdrop-blur-sm text-sky-700 transition-all duration-300"
+              >
+                <i className="fab fa-github text-lg"></i>
+              </a>
+            </div>
           </motion.div>
         </motion.div>
 
@@ -119,19 +121,6 @@ const Hero = () => {
           </div>
         </motion.div>
       </div>
-
-      {/* Floating elements */}
-      <motion.div
-        animate={{
-          y: [-10, 10, -10],
-          rotate: [0, 5, -5, 0],
-        }}
-        transition={{
-          y: { duration: 6, repeat: Infinity, ease: "easeInOut" },
-          rotate: { duration: 8, repeat: Infinity, ease: "easeInOut" },
-        }}
-        className="absolute bottom-10 left-10 w-20 h-20 bg-gradient-to-r from-sky-400/20 to-indigo-400/20 rounded-lg backdrop-blur-lg"
-      />
     </section>
   );
 };
