@@ -5,15 +5,29 @@ import { useModal } from "@/context/ModalContext";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const { setIsModalOpen } = useModal();
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      const currentScrollY = window.scrollY;
+
+      // Handle navbar visibility
+      if (currentScrollY > lastScrollY) {
+        setIsVisible(false); // Hide when scrolling down
+      } else {
+        setIsVisible(true); // Show when scrolling up
+      }
+
+      // Handle background change
+      setScrolled(currentScrollY > 50);
+      setLastScrollY(currentScrollY);
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   const navItems = [
     { name: "Home", href: "#home" },
@@ -31,16 +45,16 @@ const Navbar = () => {
       }}
       className={`fixed w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/80 backdrop-blur-md shadow-lg h-20"
-          : "bg-transparent h-24"
+          ? "bg-white/80 backdrop-blur-md shadow-lg h-16"
+          : "bg-transparent h-20"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
-        <div className={`flex items-center justify-between h-full py-4`}>
+        <div className={`flex items-center justify-between h-full pt-2`}>
           <motion.div
             whileHover={{ scale: 1.05 }}
             className={`font-bold text-gray-800 transition-all duration-300 ${
-              scrolled ? "text-xl" : "text-2xl"
+              scrolled ? "text-lg" : "text-xl"
             }`}
           >
             Mohamed Hersi
