@@ -2,24 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 @keyframes blob {
   0% {
     transform: translate(0px, 0px) scale(1);
@@ -36,7 +18,7 @@ body {
 }
 
 .animate-blob {
-  animation: blob 7s infinite;
+  animation: blob 5s infinite;
 }
 
 .animation-delay-2000 {
