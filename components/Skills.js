@@ -130,8 +130,20 @@ const Skills = () => {
     triggerOnce: true,
   });
 
+  const scrollToNextSection = () => {
+    const currentPosition = window.scrollY;
+    window.scrollTo({
+      top: currentPosition + window.innerHeight,
+      behavior: "smooth",
+    });
+  };
+
   return (
-    <section ref={ref} className="min-h-screen pt-16 flex items-center">
+    <section
+      id="skills"
+      ref={ref}
+      className="min-h-screen pt-28 pb-40 flex items-center relative"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -208,6 +220,29 @@ const Skills = () => {
           ))}
         </div>
       </div>
+
+      <motion.button
+        onClick={scrollToNextSection}
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: 0.8,
+          repeat: Infinity,
+          repeatType: "reverse",
+        }}
+        className="absolute bottom-4 sm:bottom-16 left-1/2 -translate-x-1/2 w-8 h-14 border-2 border-sky-500/30 rounded-full hidden sm:flex items-start justify-center p-2"
+        aria-label="Scroll down"
+      >
+        <motion.div
+          animate={{ y: [0, 12, 0] }}
+          transition={{
+            duration: 1.5,
+            repeat: Infinity,
+            repeatType: "loop",
+          }}
+          className="w-1 h-3 bg-sky-500/50 rounded-full"
+        />
+      </motion.button>
     </section>
   );
 };

@@ -40,9 +40,9 @@ const Projects = () => {
 
   return (
     <section
+      id="projects"
       ref={ref}
       className="min-h-screen pt-28 pb-20 flex items-center"
-      id="projects"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
