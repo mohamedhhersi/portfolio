@@ -80,9 +80,9 @@ const ContactModal = ({ isOpen, onClose }) => {
           </motion.div>
         )}
 
-        <div className="flex flex-col md:flex-row min-h-[600px]">
-          {/* Left Side - About */}
-          <div className="p-8 md:p-12 bg-gradient-to-br from-sky-50 to-indigo-50 md:w-5/12 flex flex-col h-full">
+        <div className="flex flex-col md:flex-row min-h-[600px] md:min-h-[600px]">
+          {/* Left Side - About (hidden on mobile) */}
+          <div className="hidden md:block p-8 md:p-12 bg-gradient-to-br from-sky-50 to-indigo-50 md:w-5/12 flex flex-col h-full">
             <div className="flex-grow">
               <h3 className="text-2xl font-bold text-gray-800 mb-8">
                 About Me
@@ -106,8 +106,8 @@ const ContactModal = ({ isOpen, onClose }) => {
             <div className="mt-8 pt-8 border-t border-sky-100/50"></div>
           </div>
 
-          {/* Right Side - Contact Form */}
-          <div className="p-8 md:p-12 md:w-7/12">
+          {/* Right Side - Contact Form (full width on mobile) */}
+          <div className="p-8 md:p-12 md:w-7/12 w-full">
             <button
               onClick={onClose}
               className="absolute top-6 right-6 p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-full transition-all duration-300"
