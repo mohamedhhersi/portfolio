@@ -1,41 +1,76 @@
 "use client";
 import { useModal } from "@/context/ModalContext";
 import ContactModal from "./ContactModal";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 
 const Footer = () => {
   const { isModalOpen, setIsModalOpen } = useModal();
 
   return (
     <>
-      <footer className="w-full py-5 mt-20 bg-gradient-to-b from-transparent to-white/90 backdrop-blur-sm border-t border-sky-100/30">
+      <footer className="w-full py-12 mt-20 bg-gradient-to-b from-transparent to-white/90 backdrop-blur-sm border-t border-sky-100/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-center gap-8">
-            <div className="flex gap-12">
+          <div className="flex flex-col items-center gap-10">
+            <div className="flex gap-6">
               <a
                 href="https://github.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-600 hover:text-gray-900 text-lg font-medium px-4 py-2 rounded-lg hover:bg-sky-50/50 transition-all duration-300"
+                className="group flex items-center justify-center w-12 h-12 rounded-full bg-gray-50 hover:bg-sky-50 border border-sky-100/30 hover:border-sky-200/50 transition-all duration-300"
               >
-                GitHub
+                <FaGithub className="w-5 h-5 text-gray-600 group-hover:text-sky-600 transition-colors duration-300" />
               </a>
               <a
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-600 hover:text-gray-900 text-lg font-medium px-4 py-2 rounded-lg hover:bg-sky-50/50 transition-all duration-300"
+                className="group flex items-center justify-center w-12 h-12 rounded-full bg-gray-50 hover:bg-sky-50 border border-sky-100/30 hover:border-sky-200/50 transition-all duration-300"
               >
-                LinkedIn
+                <FaLinkedinIn className="w-5 h-5 text-gray-600 group-hover:text-sky-600 transition-colors duration-300" />
               </a>
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="text-gray-600 hover:text-gray-900 text-lg font-medium px-4 py-2 rounded-lg hover:bg-sky-50/50 transition-all duration-300"
+                className="px-6 py-3 rounded-full bg-gradient-to-r from-sky-500 to-indigo-500 text-white font-medium hover:from-sky-600 hover:to-indigo-600 transition-all duration-300 shadow-md hover:shadow-lg"
               >
-                Contact
+                Get in Touch
               </button>
             </div>
 
-            <div className="text-gray-500 text-base">© 2025 Mohamed Hersi</div>
+            <div className="flex gap-8 text-sm">
+              <a
+                href="#home"
+                className="text-gray-600 hover:text-sky-600 transition-colors duration-300"
+              >
+                Home
+              </a>
+              <a
+                href="#about"
+                className="text-gray-600 hover:text-sky-600 transition-colors duration-300"
+              >
+                About
+              </a>
+              <a
+                href="#projects"
+                className="text-gray-600 hover:text-sky-600 transition-colors duration-300"
+              >
+                Projects
+              </a>
+              <a
+                href="#skills"
+                className="text-gray-600 hover:text-sky-600 transition-colors duration-300"
+              >
+                Skills
+              </a>
+            </div>
+
+            <div className="flex flex-col items-center gap-2">
+              <div className="text-gray-500 text-sm">
+                © {new Date().getFullYear()} Mohamed Hersi. All rights reserved.
+              </div>
+              <div className="text-gray-400 text-xs">
+                Built with Next.js & Tailwind CSS
+              </div>
+            </div>
           </div>
         </div>
       </footer>
