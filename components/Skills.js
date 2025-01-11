@@ -103,7 +103,16 @@ const skills = [
           />
         ),
       },
-      { name: "REST APIs", icon: "🔌" },
+      {
+        name: "Supabase",
+        icon: (
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg"
+            alt="Supabase"
+            style={{ width: "2rem", height: "2rem" }}
+          />
+        ),
+      },
       {
         name: "Framer Motion",
         icon: (
@@ -142,7 +151,7 @@ const Skills = () => {
     <section
       id="skills"
       ref={ref}
-      className="min-h-screen pt-28 pb-40 flex items-center relative"
+      className="min-h-screen pt-15 pb-40 flex items-center relative"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
