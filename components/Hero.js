@@ -1,6 +1,5 @@
 "use client";
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 const Hero = () => {
   const scrollToNextSection = () => {
@@ -9,6 +8,17 @@ const Hero = () => {
       behavior: "smooth",
     });
   };
+
+  const codeSnippet = `const developer = {
+  name: "Mohamed",
+  role: "Software Developer",
+  skills: [
+    "React",
+    "Next.js",
+    "TypeScript"
+  ],
+  passion: "Building Web Apps"
+};`;
 
   return (
     <section
@@ -39,7 +49,7 @@ const Hero = () => {
               transition={{ delay: 0.3 }}
               className="text-4xl md:text-6xl font-bold text-gray-800"
             >
-              Frontend Developer
+              Software Developer
               <motion.span
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -124,8 +134,27 @@ const Hero = () => {
               className="absolute inset-4 border-2 border-sky-400/20 rounded-full"
             />
             <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-sky-400/20 backdrop-blur-sm bg-white/30">
-              <div className="w-full h-full flex items-center justify-center text-sky-700">
-                Your Image
+              <div className="w-full h-full flex items-center justify-center p-6">
+                <motion.pre
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 1 }}
+                  className="text-left font-mono text-sm text-sky-700/70"
+                >
+                  {codeSnippet.split("").map((char, index) => (
+                    <motion.span
+                      key={index}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{
+                        duration: 0.1,
+                        delay: index * 0.03,
+                      }}
+                    >
+                      {char}
+                    </motion.span>
+                  ))}
+                </motion.pre>
               </div>
             </div>
           </div>
