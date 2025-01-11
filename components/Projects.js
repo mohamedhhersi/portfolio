@@ -1,33 +1,34 @@
 "use client";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import Image from "next/image";
 
 const projects = [
   {
-    title: "Project One",
+    title: "Flourish",
     description:
-      "A brief description of your first project. What it does, what technologies you used, and what you learned.",
-    image: "/project1.jpg", // Add your project image path
+      "A habit tracking application that helps users monitor their wellness and achieve their goals with comprehensive tracking features.",
+    image: "/flourish.png",
     tech: ["React", "Next.js", "Tailwind CSS"],
     liveLink: "#",
     githubLink: "#",
   },
   {
-    title: "Project Two",
+    title: "Library Platform",
     description:
-      "Description of your second project. Highlight the key features and your role in development.",
-    image: "/project2.jpg", // Add your project image path
-    tech: ["TypeScript", "Node.js", "MongoDB"],
-    liveLink: "#",
+      "An online library platform built with modern web technologies, featuring a clean and accessible interface for browsing and managing books.",
+    image: "/library.png",
+    tech: ["React", "Next.js", "Tailwind CSS"],
+    liveLink: "https://ecommlibraryapp.netlify.app/",
     githubLink: "#",
   },
   {
-    title: "Project Three",
+    title: "YouTube Clone",
     description:
-      "Overview of your third project. What problems did it solve? What was your approach?",
-    image: "/project3.jpg", // Add your project image path
-    tech: ["React", "AWS", "Python"],
-    liveLink: "#",
+      "A fully responsive YouTube clone focused on educational content, featuring video categorization and a dark theme interface.",
+    image: "/youtubeclone.png",
+    tech: ["React", "Node.js", "Tailwind CSS"],
+    liveLink: "https://yt-cloneapp.netlify.app/",
     githubLink: "#",
   },
 ];
@@ -42,7 +43,7 @@ const Projects = () => {
     <section
       id="projects"
       ref={ref}
-      className="min-h-screen pt-28 pb-20 flex items-center"
+      className="min-h-screen pt-5 pb-20 flex items-center"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -85,9 +86,15 @@ const Projects = () => {
               whileHover={{ y: -5 }}
               className="bg-white/80 backdrop-blur-sm rounded-xl border border-sky-100/30 hover:border-sky-200/50 transition-all duration-300 overflow-hidden"
             >
-              <div className="aspect-video w-full bg-gray-100 relative overflow-hidden">
-                {/* Replace with your image component */}
-                <div className="absolute inset-0 bg-gray-200 animate-pulse"></div>
+              <div className="aspect-video w-full relative overflow-hidden">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  priority={index === 0}
+                />
               </div>
 
               <div className="p-6">
