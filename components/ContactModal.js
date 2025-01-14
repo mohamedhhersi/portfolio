@@ -13,10 +13,10 @@ const ContactModal = ({ isOpen, onClose }) => {
 
     try {
       await emailjs.sendForm(
-        "service_p7ddlq8",
-        "template_3dqrteo",
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
         event.target,
-        "IW_1uBzWKdHTvmtMg"
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
       );
       setIsSuccess(true);
       event.target.reset(); // Clear the form
