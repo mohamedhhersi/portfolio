@@ -1,3 +1,5 @@
+"use client";
+
 export default function Container({ children }) {
   return (
     <div className="relative min-h-screen bg-gradient-to-b from-rose-50 via-sky-50 to-indigo-50 overflow-hidden">
