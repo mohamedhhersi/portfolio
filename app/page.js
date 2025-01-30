@@ -1,34 +1,31 @@
 "use client";
-import dynamic from 'next/dynamic';
-import { Suspense } from 'react';
+import { Suspense, lazy } from "react";
 import Container from "@/components/Container";
+import Hero from "@/components/Hero";
 
-// Dynamic imports for client components
-const Hero = dynamic(() => import("@/components/Hero"), {
-  ssr: true,
-  loading: () => <div className="animate-pulse bg-gray-200 h-screen"></div>
-});
+// Lazy load below-the-fold components
+const Skills = lazy(() => import("@/components/Skills"));
+const Projects = lazy(() => import("@/components/Projects"));
 
-const Skills = dynamic(() => import("@/components/Skills"), {
-  ssr: true,
-  loading: () => <div className="animate-pulse bg-gray-200 h-screen"></div>
-});
-
-const Projects = dynamic(() => import("@/components/Projects"), {
-  ssr: true,
-  loading: () => <div className="animate-pulse bg-gray-200 h-screen"></div>
-});
+// Loading component with proper height and animation
+const LoadingSection = () => (
+  <div className="min-h-screen animate-pulse bg-gray-100/50 flex items-center justify-center">
+    <div className="w-16 h-16 border-4 border-sky-500 border-t-transparent rounded-full animate-spin"></div>
+  </div>
+);
 
 export default function Home() {
   return (
     <Container>
-      <Suspense fallback={<div className="animate-pulse bg-gray-200 h-screen"></div>}>
-        <Hero />
-      </Suspense>
-      <Suspense fallback={<div className="animate-pulse bg-gray-200 h-screen"></div>}>
+      {/* Hero loads immediately */}
+      <Hero />
+      
+      {/* Other sections load when scrolled into view */}
+      <Suspense fallback={<LoadingSection />}>
         <Skills />
       </Suspense>
-      <Suspense fallback={<div className="animate-pulse bg-gray-200 h-screen"></div>}>
+      
+      <Suspense fallback={<LoadingSection />}>
         <Projects />
       </Suspense>
     </Container>
