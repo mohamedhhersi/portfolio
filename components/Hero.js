@@ -1,7 +1,14 @@
 "use client";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 const Hero = () => {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const scrollToNextSection = () => {
     window.scrollTo({
       top: window.innerHeight,
@@ -20,51 +27,53 @@ const Hero = () => {
   passion: "Building Web Apps"
 };`;
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        when: "beforeChildren",
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5 }
+    }
+  };
+
   return (
-    <section
+    <motion.section
       id="home"
       className="min-h-screen flex items-center justify-center relative"
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col md:flex-row items-center gap-12">
         {/* Text Content */}
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          className="flex-1 space-y-8"
-        >
-          <div className="space-y-2">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="inline-block px-4 py-1 rounded-full border border-sky-400/30 bg-sky-50/30 backdrop-blur-sm"
-            >
+        <div className="flex-1 space-y-8">
+          <motion.div variants={itemVariants} className="space-y-2">
+            <div className="inline-block px-4 py-1 rounded-full border border-sky-400/30 bg-sky-50/30 backdrop-blur-sm">
               <span className="text-sky-800 text-sm">Available for Work</span>
-            </motion.div>
+            </div>
 
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="text-4xl md:text-6xl font-bold text-gray-800"
-            >
+            <h2 className="text-4xl md:text-6xl font-bold text-gray-800">
               Software Developer
-              <motion.span
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.5 }}
-                className="block text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-indigo-500"
-              >
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-indigo-500">
                 Building Digital Experiences
-              </motion.span>
-            </motion.h2>
-          </div>
+              </span>
+            </h2>
+          </motion.div>
 
           <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6 }}
+            variants={itemVariants}
             className="text-lg text-gray-600 max-w-2xl leading-relaxed"
           >
             I craft responsive websites where technology meets creativity. Let's
@@ -72,9 +81,7 @@ const Hero = () => {
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7 }}
+            variants={itemVariants}
             className="flex flex-wrap gap-4"
           >
             <a
@@ -83,12 +90,14 @@ const Hero = () => {
             >
               <div className="relative z-10 flex items-center gap-2">
                 <span className="text-white font-medium">View My Work</span>
-                <motion.span
-                  animate={{ x: [0, 5, 0] }}
-                  transition={{ repeat: Infinity, duration: 1.5 }}
-                >
-                  →
-                </motion.span>
+                {mounted && (
+                  <motion.span
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{ repeat: Infinity, duration: 1.5 }}
+                  >
+                    →
+                  </motion.span>
+                )}
               </div>
             </a>
 
@@ -111,50 +120,33 @@ const Hero = () => {
               </a>
             </div>
           </motion.div>
-        </motion.div>
+        </div>
 
-        {/* Image/Animation Container */}
+        {/* Code Snippet Animation */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
+          variants={itemVariants}
           className="flex-1 flex justify-center"
         >
           <div className="relative w-72 h-72 md:w-96 md:h-96">
             <div className="absolute inset-0 bg-gradient-to-r from-sky-400/30 to-indigo-400/30 rounded-full opacity-70 blur-3xl animate-pulse"></div>
-            <motion.div
-              animate={{
-                rotate: 360,
-                scale: [1, 1.05, 1],
-              }}
-              transition={{
-                rotate: { duration: 20, repeat: Infinity, ease: "linear" },
-                scale: { duration: 2, repeat: Infinity, ease: "easeInOut" },
-              }}
-              className="absolute inset-4 border-2 border-sky-400/20 rounded-full"
-            />
+            {mounted && (
+              <motion.div
+                animate={{
+                  rotate: 360,
+                  scale: [1, 1.05, 1],
+                }}
+                transition={{
+                  rotate: { duration: 20, repeat: Infinity, ease: "linear" },
+                  scale: { duration: 2, repeat: Infinity, ease: "easeInOut" },
+                }}
+                className="absolute inset-4 border-2 border-sky-400/20 rounded-full"
+              />
+            )}
             <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-sky-400/20 backdrop-blur-sm bg-white/30">
               <div className="w-full h-full flex items-center justify-center p-6">
-                <motion.pre
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 1 }}
-                  className="text-left font-mono text-sm text-sky-700/70"
-                >
-                  {codeSnippet.split("").map((char, index) => (
-                    <motion.span
-                      key={index}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{
-                        duration: 0.1,
-                        delay: index * 0.03,
-                      }}
-                    >
-                      {char}
-                    </motion.span>
-                  ))}
-                </motion.pre>
+                <pre className="text-left font-mono text-sm text-sky-700/70">
+                  {codeSnippet}
+                </pre>
               </div>
             </div>
           </div>
@@ -185,7 +177,7 @@ const Hero = () => {
           className="w-1 h-3 bg-sky-500/50 rounded-full"
         />
       </motion.button>
-    </section>
+    </motion.section>
   );
 };
 
