@@ -10,8 +10,8 @@ const projects = [
       "A habit tracking application that helps users monitor their wellness and achieve their goals with comprehensive tracking features.",
     image: "/flourish.png",
     tech: ["React", "Next.js", "Tailwind CSS"],
-    liveLink: "#",
-    githubLink: "#",
+    liveLink: "https://wellness-tracker-omega.vercel.app/",
+    githubLink: "https://github.com/mohamedhhersi/wellness-tracker",
   },
   {
     title: "Library Platform",
@@ -20,7 +20,7 @@ const projects = [
     image: "/library.png",
     tech: ["React", "Next.js", "Tailwind CSS"],
     liveLink: "https://ecommlibraryapp.netlify.app/",
-    githubLink: "#",
+    githubLink: "https://github.com/mohamedhhersi/library-app",
   },
   {
     title: "YouTube Clone",
@@ -29,7 +29,7 @@ const projects = [
     image: "/youtubeclone.png",
     tech: ["React", "Node.js", "Tailwind CSS"],
     liveLink: "https://yt-cloneapp.netlify.app/",
-    githubLink: "#",
+    githubLink: "https://github.com/mohamedhhersi/youtube_clone",
   },
 ];
 
@@ -69,7 +69,7 @@ const Projects = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
@@ -134,6 +134,30 @@ const Projects = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* View More Projects Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="flex justify-center"
+        >
+          <a
+            href="https://github.com/mohamedhhersi"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-2 px-8 py-3 rounded-lg bg-gradient-to-r from-sky-500 to-indigo-500 text-white font-medium hover:from-sky-600 hover:to-indigo-600 transition-all duration-300"
+          >
+            View More Projects
+            <motion.span
+              animate={{ x: [0, 5, 0] }}
+              transition={{ repeat: Infinity, duration: 1.5 }}
+              className="text-lg"
+            >
+              →
+            </motion.span>
+          </a>
+        </motion.div>
       </div>
     </section>
   );
