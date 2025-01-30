@@ -8,12 +8,12 @@ const Footer = () => {
 
   return (
     <>
-      <footer className="w-full py-0 mt-20 bg-gradient-to-b from-transparent to-white/90 backdrop-blur-sm border-t border-sky-100/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-center gap-10">
+      <footer className="w-full py-12 mt-16 bg-gradient-to-b from-transparent to-white/90 backdrop-blur-sm border-t border-sky-100/30">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
+          <div className="flex flex-col items-center gap-8">
             <div className="flex gap-6">
               <a
-                href="https://github.com"
+                href="https://github.com/mohamedhhersi"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-center justify-center w-12 h-12 rounded-full bg-gray-50 hover:bg-sky-50 border border-sky-100/30 hover:border-sky-200/50 transition-all duration-300"
@@ -21,7 +21,7 @@ const Footer = () => {
                 <FaGithub className="w-5 h-5 text-gray-600 group-hover:text-sky-600 transition-colors duration-300" />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/mohamed-hersi-786a31268/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-center justify-center w-12 h-12 rounded-full bg-gray-50 hover:bg-sky-50 border border-sky-100/30 hover:border-sky-200/50 transition-all duration-300"
@@ -36,7 +36,7 @@ const Footer = () => {
               </button>
             </div>
 
-            <div className="flex gap-8 text-sm">
+            <div className="flex gap-10 text-sm">
               <a
                 href="#home"
                 className="text-gray-600 hover:text-sky-600 transition-colors duration-300"
@@ -63,12 +63,9 @@ const Footer = () => {
               </a>
             </div>
 
-            <div className="flex flex-col items-center gap-2">
+            <div className="flex flex-col items-center gap-3 pb-4">
               <div className="text-gray-500 text-sm">
-                © {new Date().getFullYear()} Mohamed Hersi. All rights reserved.
-              </div>
-              <div className="text-gray-400 text-xs">
-                Built with Next.js & Tailwind CSS
+                {new Date().getFullYear()} Mohamed Hersi. All rights reserved.
               </div>
             </div>
           </div>
