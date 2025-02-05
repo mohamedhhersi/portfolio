@@ -19,7 +19,6 @@ const Hero = () => {
 
   const codeSnippet = `const developer = {
   name: "Mohamed",
-  role: "Software Developer",
   skills: [
     "React",
     "Next.js",
@@ -141,14 +140,14 @@ const Hero = () => {
               />
             )}
             <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-sky-400/20 backdrop-blur-sm bg-white/30">
-              <div className="w-full h-full flex items-center justify-center p-6">
+              <div className="w-full h-full flex items-center justify-center p-4">
                 <TypeAnimation
                   sequence={[codeSnippet]}
                   wrapper="pre"
                   cursor={true}
                   repeat={0}
-                  speed={50}
-                  className="text-left font-mono text-sm text-sky-700/70"
+                  speed={75}
+                  className="text-left font-mono text-[10px] md:text-sm text-sky-700/70"
                 />
               </div>
             </div>
