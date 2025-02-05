@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { TypeAnimation } from 'react-type-animation';
+import { TypeAnimation } from "react-type-animation";
 
 const Hero = () => {
   const [mounted, setMounted] = useState(false);
@@ -35,9 +35,9 @@ const Hero = () => {
       transition: {
         duration: 0.6,
         when: "beforeChildren",
-        staggerChildren: 0.1
-      }
-    }
+        staggerChildren: 0.1,
+      },
+    },
   };
 
   const itemVariants = {
@@ -45,8 +45,8 @@ const Hero = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.5 }
-    }
+      transition: { duration: 0.5 },
+    },
   };
 
   return (
@@ -81,10 +81,7 @@ const Hero = () => {
             bring your vision to life with clean code and modern design.
           </motion.p>
 
-          <motion.div
-            variants={itemVariants}
-            className="flex flex-wrap gap-4"
-          >
+          <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
             <a
               href="#projects"
               className="group relative px-6 py-3 rounded-lg overflow-hidden bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-600 hover:to-indigo-600 transition-all duration-300"
