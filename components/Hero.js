@@ -86,15 +86,7 @@ const Hero = () => {
               className="group relative px-6 py-3 rounded-lg overflow-hidden bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-600 hover:to-indigo-600 transition-all duration-300"
             >
               <div className="relative z-10 flex items-center gap-2">
-                <span className="text-white font-medium">View My Work</span>
-                {mounted && (
-                  <motion.span
-                    animate={{ x: [0, 5, 0] }}
-                    transition={{ repeat: Infinity, duration: 1.5 }}
-                  >
-                    →
-                  </motion.span>
-                )}
+                <span className="text-white font-medium">View Projects</span>
               </div>
             </a>
 
@@ -106,14 +98,6 @@ const Hero = () => {
                 className="px-3 py-3 rounded-lg border border-sky-500/30 hover:border-sky-500/50 bg-sky-50/30 backdrop-blur-sm text-sky-700 transition-all duration-300"
               >
                 <i className="fab fa-linkedin-in text-lg"></i>
-              </a>
-              <a
-                href="https://github.com/mohamedhhersi"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-3 py-3 rounded-lg border border-sky-500/30 hover:border-sky-500/50 bg-sky-50/30 backdrop-blur-sm text-sky-700 transition-all duration-300"
-              >
-                <i className="fab fa-github text-lg"></i>
               </a>
             </div>
           </motion.div>

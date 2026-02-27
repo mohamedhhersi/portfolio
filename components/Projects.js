@@ -14,21 +14,21 @@ const projects = [
     githubLink: "https://github.com/mohamedhhersi/wellness-tracker",
   },
   {
-    title: "Library Platform",
+    title: "Brand Agency",
     description:
-      "An online library platform built with modern web technologies, featuring a clean and accessible interface for browsing and managing books.",
-    image: "/library.png",
+      "A modern brand agency landing page that highlights services, portfolio work, and client trust with a clean, high-impact visual design.",
+    image: "/agency.png",
     tech: ["React", "Next.js", "Tailwind CSS"],
-    liveLink: "https://ecommlibraryapp.netlify.app/",
+    liveLink: "https://www.bridgetobrandagency.com/",
     githubLink: "https://github.com/mohamedhhersi/library-app",
   },
   {
-    title: "YouTube Clone",
+    title: "Barrel Shipping Business",
     description:
-      "A fully responsive YouTube clone focused on educational content, featuring video categorization and a dark theme interface.",
-    image: "/youtubeclone.png",
-    tech: ["React", "Node.js", "Tailwind CSS"],
-    liveLink: "https://yt-cloneapp.netlify.app/",
+      "A barrel shipping website that clearly showcases services, pricing, and logistics for customers.",
+    image: "/barrel_business.png",
+    tech: ["React", "Next.js", "Tailwind CSS"],
+    liveLink: "https://helentransportation.com/",
     githubLink: "https://github.com/mohamedhhersi/youtube_clone",
   },
 ];
@@ -112,7 +112,7 @@ const Projects = () => {
                     </span>
                   ))}
                 </div>
-                <div className="flex gap-4">
+                <div className="flex">
                   <a
                     href={project.liveLink}
                     target="_blank"
@@ -120,14 +120,6 @@ const Projects = () => {
                     className="flex-1 text-center px-4 py-2 rounded-lg bg-gradient-to-r from-sky-500 to-indigo-500 text-white font-medium hover:from-sky-600 hover:to-indigo-600 transition-all duration-300"
                   >
                     Live Demo
-                  </a>
-                  <a
-                    href={project.githubLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 text-center px-4 py-2 rounded-lg border border-sky-500/30 hover:border-sky-500/50 bg-sky-50/30 backdrop-blur-sm text-sky-700 font-medium transition-all duration-300"
-                  >
-                    GitHub
                   </a>
                 </div>
               </div>
